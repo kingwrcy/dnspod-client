@@ -1,0 +1,1 @@
+rsrc.exe -manifest dnspod.manifest -ico img/dnspod.ico,img/add.ico,img/ashbin.ico,img/edit.ico,img/refresh.ico  -o rsrc.syso
