@@ -168,6 +168,7 @@ func showDialog() {
 				},
 				LineEdit{
 					Text:      Bind("Name"),
+					MaxLength: 100,
 				},
 				Label{
 					Text: "内容:",
@@ -175,7 +176,7 @@ func showDialog() {
 				TextEdit{
 					MinSize: Size{Height: 50},
 					MaxSize: Size{Height: 250},
-					Text: Bind("Value"),
+					Text:    Bind("Value"),
 				},
 			},
 		},

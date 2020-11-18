@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"github.com/lxn/walk"
 	"github.com/mitchellh/go-homedir"
+	"github.com/tidwall/gjson"
 	"io/ioutil"
 	"kingwrcy/dnspod-client/model"
 	"net/http"
 	"net/url"
 	"os"
 	"path"
-	"src/github.com/tidwall/gjson"
 )
 
 var dnsPodToken = ""
@@ -69,9 +69,9 @@ func GetDomainList() []model.Domain {
 	var result []model.Domain
 	for _, domain := range domains {
 		result = append(result, model.Domain{
-			Name: domain.Get("name").String(),
-			ID:   domain.Get("id").Int(),
-			Records:   domain.Get("records").String(),
+			Name:    domain.Get("name").String(),
+			ID:      domain.Get("id").Int(),
+			Records: domain.Get("records").String(),
 		})
 	}
 	return result
@@ -116,7 +116,7 @@ func SaveRecord(domainId int64, record model.Record) bool {
 	val.Add("record_line", "默认")
 	val.Add("domain_id", fmt.Sprintf("%d", domainId))
 	val.Add("mx", "20")
-	fmt.Printf("value:%+v\n",val)
+	fmt.Printf("value:%+v\n", val)
 	resp, err := http.PostForm("https://dnsapi.cn/Record.Create", val)
 	if err != nil {
 		ShowErrMsg(fmt.Sprintf("保存记录报错:%s", err.Error()))
