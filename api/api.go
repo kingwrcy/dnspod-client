@@ -14,7 +14,8 @@ import (
 )
 
 var dnsPodToken = ""
-var dnspodFileName = ".dnspod"
+
+const dnspodFileName = ".dnspod"
 
 func ShowErrMsg(msg string) {
 	walk.MsgBox(nil, "错误", msg, walk.MsgBoxIconError)

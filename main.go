@@ -223,10 +223,11 @@ func main() {
 	}
 
 	err := MainWindow{
-		Icon:     "3",
-		AssignTo: &mainWin,
-		Title:    "Dnspod",
-		Size:     Size{Width: 900, Height: 600},
+		Icon:       "3",
+		AssignTo:   &mainWin,
+		Title:      "Dnspod",
+		Persistent: true,
+		Size:       Size{Width: 900, Height: 600},
 		Layout: Grid{
 			Columns: 2, Spacing: 10,
 		},
